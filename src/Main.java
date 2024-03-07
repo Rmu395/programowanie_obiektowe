@@ -1,4 +1,9 @@
 public class Main {
+
+//    public Segment[] PerpendicularLines(Segment segment, Point point) {
+//
+//    }
+
     public static void main(String[] args) {
         Point p1 = new Point(10, 10);
         Point p2 = new Point(100, 100);
@@ -8,6 +13,6 @@ public class Main {
         System.out.println(segment.toSvg());
 
         // Tablica
-        Point[] points = new Point[10];
+//        Point[] points = new Point[4];
     }
 }
