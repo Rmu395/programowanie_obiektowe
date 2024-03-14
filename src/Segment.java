@@ -22,8 +22,8 @@ public class Segment {
 
     public String toSvg() {
         return String.format(Locale.ENGLISH,"<line x1=\"%f\" y1=\"%f\" x2=\"%f\" " +
-                        "y2=\"%f\" style=\"stroke:red;stroke-width:2\" />", p1.x,
-                p1.y, p2.x, p2.y
+                        "y2=\"%f\" style=\"stroke:red;stroke-width:2\" />",
+                p1.x, p1.y, p2.x, p2.y
         );
     }
 
