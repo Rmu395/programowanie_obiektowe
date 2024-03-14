@@ -23,7 +23,7 @@ public class Polygon implements Shape {
             pointsString += vec2.x + "," + vec2.y + " ";
 
         return String.format(Locale.ENGLISH,"" +
-                "<polygon points=\"%s\"%s />", pointsString, parameters);
+                "<polygon points=\"%s\" %s />", pointsString, parameters);
     }
 
     static Polygon sqare(Segment line, Style style) {

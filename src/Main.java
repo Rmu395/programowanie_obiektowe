@@ -4,13 +4,20 @@ public class Main {
         Vec2 point2 = new Vec2(100, 101);
         Vec2 point3 = new Vec2(50, 50);
 
-        SolidFilledPolygon solidFilledPolygon = new SolidFilledPolygon(3, "red");
-        solidFilledPolygon.setPoint(0, point1);
-        solidFilledPolygon.setPoint(1, point2);
-        solidFilledPolygon.setPoint(2, point3);
+        Polygon polygon = new Polygon(
+                3,
+                new Style(
+                        null,
+                        null,
+                        null));
+        polygon.setPoint(0, point1);
+        polygon.setPoint(1, point2);
+        polygon.setPoint(2, point3);
+
+        Shape filledPolygon = new SolidFilledShapeDecorator(polygon, "blue");
 
         SvgScene svgScene = new SvgScene();
-        svgScene.addShape(solidFilledPolygon);
+        svgScene.addShape(filledPolygon);
         svgScene.saveHtml("./test.html");
     }
 }
