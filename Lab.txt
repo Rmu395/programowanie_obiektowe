@@ -1,9 +1,9 @@
 ====Lab1====
 Zadanie 1.
-Zdefiniuj klasę Point posiadającą dwa publiczne,
+Zdefiniuj klasę Vec2 posiadającą dwa publiczne,
 ostateczne pola x, y. Napisz konstruktor ustawiający te wartości.
 Zdefiniuj klasę Segment reprezentującą odcinek,
-posiadającą dwa prywatne punkty klasy Point.
+posiadającą dwa prywatne punkty klasy Vec2.
 Wygeneruj akcesory i mutatory klasy Segment.
 Napisz publiczną metodę, która zwraca długość odcinka.
 W kolejnym kroku usuń mutatory i utwórz konstruktor ustawiający te pola na wartości swoich dwóch parametrów.
@@ -14,9 +14,9 @@ która zwróci napis zawierający kod języka znacznikowego SVG pozwalający wy�
 
 Zadanie 3.
 Napisz funkcję (metodę klasy głównej),
-która przyjmie: obiekt segment klasy Segment oraz obiekt point klasy Point.
+która przyjmie: obiekt segment klasy Segment oraz obiekt vec2 klasy Vec2.
 Funkcja powinna zwrócić odcinek prostopadły do segment,
-rozpoczynający się w punkcie point o długości równej odcinkowi segment.
+rozpoczynający się w punkcie vec2 o długości równej odcinkowi segment.
 Następnie zmodyfikuj tę metodę tak, aby zwracała tablicę dwóch możliwych do konstrukcji linii oraz
 przenieś tę metodę jako statyczną do klasy Segment. Szczególne przypadki należy zignorować.
 
@@ -54,6 +54,6 @@ Zadanie 4a.
 Utwórz klasę abstrakcyjną Shape, która otrzyma jako pole, obiekt klasy Style. Uczyń pole tego obiektu chronionym. Utwórz publiczny konstruktor, który ustawia to pole. Napisz abstrakcyjną metodę toSvg(). Zmodyfikuj klasę Polygon, aby dziedziczyła po klasie Shape.
 
 Zadanie 4b.
-Napisz klasę Ellipse dziedziczącą po Shape, posiadającą prywatne pola: środek elipsy (Point), długości promieni i styl. W jej implementacji metody toSvg() powinno znaleźć się rysowanie z użyciem tagu <ellipse>.
+Napisz klasę Ellipse dziedziczącą po Shape, posiadającą prywatne pola: środek elipsy (Vec2), długości promieni i styl. W jej implementacji metody toSvg() powinno znaleźć się rysowanie z użyciem tagu <ellipse>.
 Zmodyfikuj klasę SvgScene, aby posiadała tablicę obiektów klasy Shape i korzystając z polimorfizmu zapisz w niej obiekty typu Polygon i Ellipse.
 
