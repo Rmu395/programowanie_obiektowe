@@ -1,32 +1,54 @@
-
-
-//https://github.com/lukaszkurantdev/programowanie_obiektowe
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.nio.Buffer;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-        Vec2 point1 = new Vec2(0, 100);
-        Vec2 point2 = new Vec2(100, 102);
-        Vec2 point3 = new Vec2(50, 50);
+//        ArrayList<String> list = new ArrayList<>();
+//        list.add("Test1");
+//        list.add("Test2");
+//        list.add("Test3");
+//        for (String str : list) {
+//            System.out.println(str);
+//        }
+//        System.out.println("\nuga " + list.get(1) + " booga");
+//
+//        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy");
+//        String dateString = "10.10.2010";
+//        LocalDate date = LocalDate.parse(dateString, formatter);
 
-        Polygon polygon = new Polygon(
-                3,
-                new Style(null, null, null)
-        );
-        polygon.setPoint(0, point1);
-        polygon.setPoint(1, point2);
-        polygon.setPoint(2, point3);
+//        try {
+//            FileReader fileReader = new FileReader("");
+//            BufferedReader reader = new BufferedReader(fileReader);
+//            String line = reader.readLine();
+//
+//            while(line != null) {
+//                // ... line
+//                line = reader.readLine();
+//            }
+//
+//        } catch (FileNotFoundException e) {
+//            throw new RuntimeException(e);
+//        } catch (IOException e) {
+//            throw new RuntimeException(e);
+//        }
 
-        Shape filledPolygon = new SolidFilledShapeDecorator(polygon, "blue");
+        List<Person> list;
+        try {
+            list = Person.fromCsv("family.csv");
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
 
-        Shape transformedPolygon = new TransformationDecorator
-                .Builder()
-                .setShape(filledPolygon)
-                .setTranslateVector(point3)
-                .setTranslateVector(point3)
-                .build();
+        for(Person person : list) {
+            System.out.println(person.name);
+        }
 
-        SvgScene svgScene = new SvgScene();
-        svgScene.addShape(transformedPolygon);
-        svgScene.saveHtml("./test.html");
     }
 }
