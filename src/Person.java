@@ -4,6 +4,7 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
 import java.util.function.Function;
+import java.util.stream.Collectors;
 
 public class Person implements Serializable {
     public final String name;
@@ -152,5 +153,13 @@ public class Person implements Serializable {
                 String.join("\n", objects),
                 String.join("", relations)
         );
+    }
+
+    public static List<Person> substringCheck(List<Person> list, String subString) {
+        List<Person> result = list
+                .stream()
+                .filter(person -> person.name.contains(subString))
+                .collect(Collectors.toList());
+        return result;
     }
 }

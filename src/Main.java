@@ -8,11 +8,27 @@ public class Main {
 
         try {
             List<Person> people = Person.fromCsv("family.csv");
-            for(Person person: people)
+
+//            Optional<String> changedPeople = people
+//                    .stream()
+//                    .sorted((person1, person2) -> person1.name.compareTo(person2.name))
+//                    .map(person -> person.name)
+//                    .filter(name -> !name.equals("Anna Dąbrowska"))
+//                    .max((name1, name2) -> name1.compareTo(name2));
+//                    .collect(Collectors.toList());
+
+//            if(!changedPeople.isEmpty()) {
+//                System.out.println(changedPeople.get());
+//            }
+            List<Person> changedPeople = Person.substringCheck(people, "Dąb");
+            for (Person person: changedPeople)
                 System.out.println(person);
 
-            String uml = Person.toUML(people);
-            PlantUMLRunner.generate(uml, "uml", "family");
+//            for(String person: changedPeople)
+//                System.out.println(person);
+//
+//            String uml = Person.toUML(people);
+//            PlantUMLRunner.generate(uml, "uml", "family");
 
 //            Person person = people.get(2);
 //            String uml = person.toUML();
@@ -23,3 +39,6 @@ public class Main {
         }
     }
 }
+
+// String test = "dsdsds";
+// test.contains("");
