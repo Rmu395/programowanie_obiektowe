@@ -1,54 +1,30 @@
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.io.IOException;
-import java.nio.Buffer;
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
 import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-//        ArrayList<String> list = new ArrayList<>();
-//        list.add("Test1");
-//        list.add("Test2");
-//        list.add("Test3");
-//        for (String str : list) {
-//            System.out.println(str);
-//        }
-//        System.out.println("\nuga " + list.get(1) + " booga");
-//
-//        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy");
-//        String dateString = "10.10.2010";
-//        LocalDate date = LocalDate.parse(dateString, formatter);
+        String data = "@startuml\n" +
+                "object JanKowalski\n" +
+                "object AnnaKowalska\n" +
+                "\n" +
+                "JanKowalski --> AnnaKowalska\n" +
+                "@enduml";
+
+        PlantUMLRunner.setJarPath("C:\\Users\\KOMPUTER\\IdeaProjects\\programowanie_obiektowe\\plantuml-1.2024.3.jar");
+        PlantUMLRunner.generate(data, "uml", "test");
 
 //        try {
-//            FileReader fileReader = new FileReader("");
-//            BufferedReader reader = new BufferedReader(fileReader);
-//            String line = reader.readLine();
+//            List<Person> people = Person.fromCsv("family.csv");
+//            for(Person person: people)
+//                System.out.println(person);
 //
-//            while(line != null) {
-//                // ... line
-//                line = reader.readLine();
-//            }
+//            Person.toBinaryFile(people, "family.bin");
+//            List<Person> loadPeople = Person.fromBinaryFile("family.bin");
+//            for(Person person: loadPeople)
+//                System.out.println(person);
 //
-//        } catch (FileNotFoundException e) {
-//            throw new RuntimeException(e);
-//        } catch (IOException e) {
+//        } catch (IOException | ClassNotFoundException e) {
 //            throw new RuntimeException(e);
 //        }
-
-        List<Person> list;
-        try {
-            list = Person.fromCsv("family.csv");
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-
-        for(Person person : list) {
-            System.out.println(person.name);
-        }
-
     }
 }
