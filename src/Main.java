@@ -20,7 +20,8 @@ public class Main {
 //            if(!changedPeople.isEmpty()) {
 //                System.out.println(changedPeople.get());
 //            }
-            List<Person> changedPeople = Person.substringCheck(people, "Dąb");
+//            List<Person> changedPeople = Person.substringCheck(people, "Dąb");
+            List<Person> changedPeople = Person.sortedList(people);
             for (Person person: changedPeople)
                 System.out.println(person);
 

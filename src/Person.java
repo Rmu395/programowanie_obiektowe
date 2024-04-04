@@ -162,4 +162,12 @@ public class Person implements Serializable {
                 .collect(Collectors.toList());
         return result;
     }
+
+    public static List<Person> sortedList(List<Person> list) {
+        List<Person> result = list
+                .stream()
+                .sorted((person1, person2) -> person1.birth.compareTo(person2.birth))
+                .collect(Collectors.toList());
+        return result;
+    }
 }
