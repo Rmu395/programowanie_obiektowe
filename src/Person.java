@@ -112,14 +112,14 @@ public class Person implements Serializable {
         }
     }
 
-    public String toUML() {
+    public String toUML(Function<String, String> postProcess) {
         StringBuilder objects = new StringBuilder();
         StringBuilder relations = new StringBuilder();
 
         Function<String, String> replaceSpaces = str -> str.replaceAll(" ", "");
 
 
-        objects.append("object " + replaceSpaces.apply(name) + "\n");
+        objects.append("object " + replaceSpaces.apply(name) + "\n");   // tutaj postProcess powinien to przekształcać
 
         for(Person parent : parents) {
             objects.append("object " + replaceSpaces.apply(parent.name) + "\n");
@@ -169,5 +169,23 @@ public class Person implements Serializable {
                 .sorted((person1, person2) -> person1.birth.compareTo(person2.birth))
                 .collect(Collectors.toList());
         return result;
+    }
+// zad 6/7
+    public static List<Person> deadPeople(List<Person> list) {
+        List<Person> result = list
+                .stream()
+                .filter(person -> person.death != null)
+                .sorted((person1, person2) -> Long.compare(person2.age(person2), person1.age(person1)))
+                .collect(Collectors.toList());
+        return result;
+    }
+
+    public long age(Person person) {
+        if (person.death != null) { //life in days
+            return person.death.toEpochDay() - person.birth.toEpochDay();
+        }
+        else {
+            return LocalDate.now().toEpochDay() - person.birth.toEpochDay();
+        }
     }
 }

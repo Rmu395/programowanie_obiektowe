@@ -21,7 +21,7 @@ public class Main {
 //                System.out.println(changedPeople.get());
 //            }
 //            List<Person> changedPeople = Person.substringCheck(people, "Dąb");
-            List<Person> changedPeople = Person.sortedList(people);
+            List<Person> changedPeople = Person.deadPeople(people);
             for (Person person: changedPeople)
                 System.out.println(person);
 
