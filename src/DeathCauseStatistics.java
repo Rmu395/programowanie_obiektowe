@@ -26,7 +26,7 @@ public class DeathCauseStatistics {
 //    public String getICDCode() {
 //        return ICDCode;
 //    }
-private String ICDCode;
+    private String ICDCode;
     private int[] deathCount;
 
     public DeathCauseStatistics(int[] deathCount, String ICDCode) {
@@ -50,6 +50,34 @@ private String ICDCode;
             }
         }
         return new DeathCauseStatistics(deaths, ICD);
+    }
+
+    // moja wersja (ponoć dobrze)
+    public class AgeBracketDeaths {
+        public final int young;
+        public final int old;
+        public final int deathCount;
+
+        public AgeBracketDeaths(int young, int old, int deathCount) {
+            this.young = young;
+            this.old = old;
+            this.deathCount = deathCount;
+        }
+    }
+
+    public AgeBracketDeaths AgeDeaths(int age) {
+        if ((age/5)*5 != 95)
+            return new AgeBracketDeaths(
+                (age/5)*5,
+                ((age/5)*5)+4,
+                deathCount[age/5]
+            );
+        else
+            return new AgeBracketDeaths(
+                (age/5)*5,
+                Integer.MAX_VALUE,
+                deathCount[age/5]
+            );
     }
 
 }
