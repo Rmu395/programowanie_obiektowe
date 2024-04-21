@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.List;
 
 public class DeathCauseStatistics {
 //    //my ver (not checked)
